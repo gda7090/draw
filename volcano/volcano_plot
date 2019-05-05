@@ -1,0 +1,64 @@
+#!/usr/bin/env Rscript
+suppressMessages({
+library(ggplot2)
+library(argparser)})
+
+argv <- arg_parser('')
+argv <- add_argument(argv,"--das", help="the differential analysis result")
+argv <- add_argument(argv,"--cpname", help="the compare name")
+argv <- add_argument(argv,"--fc", help="the foldchange vlaue",type='numeric')
+argv <- add_argument(argv,"--pvalue", help="the p value",type='numeric')
+argv <- add_argument(argv,"--padj", help="the p adjust value",type='numeric')
+argv <- add_argument(argv,"--outdir", help="the output dir")
+argv <- parse_args(argv)
+
+das <- argv$das
+cpname <- argv$cpname
+fc <- argv$fc
+p <- argv$pvalue
+q <- argv$padj
+outdir <- argv$outdir
+
+das_frame <- read.delim(das,header=TRUE,sep='\t')
+
+if (is.na(p)) {
+    volcano <- subset(das_frame,select=c(ID,log2FoldChange,padj))
+    volcano["group"] <- "NO"
+    volcano[which(volcano["padj"] <= q & volcano["log2FoldChange"] >= log(fc,2)),"group"] <- "UP"
+    volcano[which(volcano["padj"] <= q & volcano["log2FoldChange"] <= -log(fc,2)),"group"] <- "DOWN"
+    NO_number <- nrow(volcano[which(volcano["group"]=='NO'),])
+    UP_number <- nrow(volcano[which(volcano["group"]=='UP'),])
+    DOWN_number <- nrow(volcano[which(volcano["group"]=='DOWN'),])
+    volcano[which(volcano["group"]=='NO'),"group"] <- paste('NO',NO_number,sep=' ')
+    volcano[which(volcano["group"]=='UP'),"group"] <- paste('UP',UP_number,sep=' ')
+    volcano[which(volcano["group"]=='DOWN'),"group"] <- paste('DOWN',DOWN_number,sep=' ')
+    volcano$group <- factor(volcano$group,levels=c(paste('UP',UP_number,sep=' '),paste('DOWN',DOWN_number,sep=' '),paste('NO',NO_number,sep=' ')))
+    P <- ggplot(volcano,aes(x=log2FoldChange,y=-log10(padj),group=group,color=group)) + geom_point() + ggtitle(cpname) + theme(plot.title=element_text(hjust=0.5)) +
+    geom_vline(xintercept=c(-log(fc,2),log(fc,2)),linetype='dotdash',size=0.8,color='grey') +
+    geom_hline(yintercept=-log10(q),linetype='dotdash',size=0.8,color='grey')}
+
+if (is.na(q)) {
+    volcano <- subset(das_frame,select=c(ID,log2FoldChange,pvalue))
+    volcano["group"] <- "NO"
+    volcano[which(volcano["pvalue"] <= p & volcano["log2FoldChange"] >= log(fc,2)),"group"] <- "UP"
+    volcano[which(volcano["pvalue"] <= p & volcano["log2FoldChange"] <= -log(fc,2)),"group"] <- "DOWN"
+    NO_number <- nrow(volcano[which(volcano["group"]=='NO'),])
+    UP_number <- nrow(volcano[which(volcano["group"]=='UP'),])
+    DOWN_number <- nrow(volcano[which(volcano["group"]=='DOWN'),])
+    volcano[which(volcano["group"]=='NO'),"group"] <- paste('NO',NO_number,sep=' ')
+    volcano[which(volcano["group"]=='UP'),"group"] <- paste('UP',UP_number,sep=' ')
+    volcano[which(volcano["group"]=='DOWN'),"group"] <- paste('DOWN',DOWN_number,sep=' ')
+    volcano$group <- factor(volcano$group,levels=c(paste('UP',UP_number,sep=' '),paste('DOWN',DOWN_number,sep=' '),paste('NO',NO_number,sep=' ')))
+    P <- ggplot(volcano,aes(x=log2FoldChange,y=-log10(pvalue),group=group,color=group)) + geom_point() + ggtitle(cpname) + theme(plot.title=element_text(hjust=0.5)) +
+    geom_vline(xintercept=c(-log(fc,2),log(fc,2)),linetype='dotdash',size=0.8,color='grey') +
+    geom_hline(yintercept=-log10(p),linetype='dotdash',size=0.8,color='grey')}
+
+P <- P + theme(panel.background=element_rect(fill="transparent"),axis.line=element_line())
+
+pdf(file=paste(outdir,'/',cpname,'.volcano.pdf',sep=''))
+P
+dev.off()
+svg(filename=paste(outdir,'/',cpname,'.volcano.svg',sep=''))
+P
+dev.off()
+ggsave(file=paste(outdir,'/',cpname,'.volcano.png',sep=''),type='cairo-png',plot=P)
