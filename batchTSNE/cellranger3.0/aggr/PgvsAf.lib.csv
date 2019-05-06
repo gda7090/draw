@@ -1,7 +1,7 @@
 library_id,molecule_h5
-PG_1,/NJPROJ2/RNA_S/project_Q3/P101SC18080982-01-B1-18_xiaoshu_20180901/CellRanger/PG_1/PG_1/outs/molecule_info.h5
-PG_2,/NJPROJ2/RNA_S/project_Q3/P101SC18080982-01-B1-18_xiaoshu_20180901/CellRanger/PG_2/PG_2/outs/molecule_info.h5
-Af_1,/NJPROJ2/RNA_S/project_Q3/P101SC18080982-01-B1-18_xiaoshu_20180901/CellRanger/Af_1/Af_1/outs/molecule_info.h5
-Af_2,/NJPROJ2/RNA_S/project_Q3/P101SC18080982-01-B1-18_xiaoshu_20180901/CellRanger/Af_2/Af_2/outs/molecule_info.h5
-Af_3,/NJPROJ2/RNA_S/project_Q3/P101SC18080982-01-B1-18_xiaoshu_20180901/CellRanger/Af_3/Af_3/outs/molecule_info.h5
-Af_4,/NJPROJ2/RNA_S/project_Q3/P101SC18080982-01-B1-18_xiaoshu_20180901/CellRanger/Af_4/Af_4/outs/molecule_info.h5
+PG_1,CellRanger/PG_1/PG_1/outs/molecule_info.h5
+PG_2,CellRanger/PG_2/PG_2/outs/molecule_info.h5
+Af_1,CellRanger/Af_1/Af_1/outs/molecule_info.h5
+Af_2,CellRanger/Af_2/Af_2/outs/molecule_info.h5
+Af_3,CellRanger/Af_3/Af_3/outs/molecule_info.h5
+Af_4,CellRanger/Af_4/Af_4/outs/molecule_info.h5

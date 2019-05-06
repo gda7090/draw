@@ -30,13 +30,13 @@ if(is.null(args$subchr)){
 }
 
 if(!exists("geneInfo")){
-    geneInfo="/BJPROJ/RNA/zhaomeng/TJPROJ1_RNA_zhaomeng_backup/NH141247_guoying_TransRef/after_zcat/Diff_TR/Diff/geneInfo"
+    geneInfo="after_zcat/Diff_TR/Diff/geneInfo"
     }
 if(!exists("diff_gene_xls")){
-    diff_gene_xls="/BJPROJ/RNA/zhaomeng/TJPROJ1_RNA_zhaomeng_backup/NH141247_guoying_TransRef/after_zcat/Diff_TR/Diff/CG31917vsControl/CG31917vsControl.diffgene.xls"
+    diff_gene_xls="after_zcat/Diff_TR/Diff/CG31917vsControl/CG31917vsControl.diffgene.xls"
     }
 if(!exists("fai")){
-    fai="/BJPROJ/RNA/zhaomeng/TJPROJ1_RNA_zhaomeng_backup/NH141247_guoying_TransRef/after_zcat/fruitfly.fa.fai"
+    fai="after_zcat/fruitfly.fa.fai"
 }
 if(!exists("subset.chr")){
    subset.chr = c("2L","2R","3L","3R","X")

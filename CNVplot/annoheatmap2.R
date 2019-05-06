@@ -1,7 +1,7 @@
-#/NJPROJ2/MICRO/PROJ/yangfenglong/software/miniconda3/lib/R/bin/Rscript annoheatmap.R
+#software/miniconda3/lib/R/bin/Rscript annoheatmap.R
 args <- commandArgs(T)
 if(length(args)<2){
-    cat ("Example:  /NJPROJ2/MICRO/PROJ/yangfenglong/software/miniconda3/lib/R/bin/Rscript annoheatmap.R test.csv hlist.svg\n")
+    cat ("Example:  software/miniconda3/lib/R/bin/Rscript annoheatmap.R test.csv hlist.svg\n")
 	    quit("no")
 		}
 

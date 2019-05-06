@@ -1,13 +1,13 @@
-#/NJPROJ2/MICRO/PROJ/yangfenglong/software/miniconda3/lib/R/bin/Rscript annoheatmap.R
+#software/miniconda3/lib/R/bin/Rscript annoheatmap.R
 args <- commandArgs(T)
 if(length(args)<2){
-    cat ("Example:  /NJPROJ2/MICRO/PROJ/yangfenglong/software/miniconda3/lib/R/bin/Rscript annoheatmap.R test.csv hlist.svg\n")
+    cat ("Example:  software/miniconda3/lib/R/bin/Rscript annoheatmap.R test.csv hlist.svg\n")
 	    quit("no")
 		}
 
 library(circlize) #for heatmap colors
 library(RColorBrewer) # for group colors 
-.libPaths("/NJPROJ2/MICRO/PROJ/yangfenglong/software/miniconda3/lib/R/library/")
+.libPaths("software/miniconda3/lib/R/library/")
 library(tidyverse)
 .libPaths("/NJPROJ2/RNA_S/personal_dir/lindan/YanFa/ComplexHeatmap")
 library(ComplexHeatmap)

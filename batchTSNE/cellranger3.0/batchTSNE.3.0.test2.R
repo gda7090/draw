@@ -10,9 +10,9 @@ library('ggplot2')
 #args <- parser$parse_args()
 #str(args)
 
-clusterpath = "/NJPROJ2/RNA_S/personal_dir/lindan/script/batchTSNE/cellranger3.0/aggr/EvsLvsAmvsOld/outs/analysis/clustering"
+clusterpath = "/batchTSNE/cellranger3.0/aggr/EvsLvsAmvsOld/outs/analysis/clustering"
 sample = "3.0test" 
-tsne= "/NJPROJ2/RNA_S/personal_dir/lindan/script/batchTSNE/cellranger3.0/aggr/EvsLvsAmvsOld/outs/analysis/tsne/2_components/projection.csv"
+tsne= "/batchTSNE/cellranger3.0/aggr/EvsLvsAmvsOld/outs/analysis/tsne/2_components/projection.csv"
 libcsv="EvsLvsAmvsOld.lib.csv"
 
 vis_clusters<-function (cluster_result, projection, colour = NULL, alpha = 1,

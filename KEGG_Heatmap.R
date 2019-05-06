@@ -106,7 +106,7 @@ KEGG_Expr = na.exclude(KEGG_Expr[seq(1,(Number_terms+1)),])
 KEGG_Expr = log2(KEGG_Expr+1)
 KEGG_Expr = head(KEGG_Expr,30)
 
-write.table(KEGG_Expr, "/TJPROJ1/RNA/kangmingming/after-sale/NHT150112-as/kegg.xls")
+write.table(KEGG_Expr, "after-sale/NHT150112-as/kegg.xls")
 ## #----------------  out figure     ----------------------------------------
 ## num_gene=dim(KEGG_Expr)[1]
 ## if(num_gene > 30){

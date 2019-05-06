@@ -1,4 +1,4 @@
-#data<-read.table('/NJPROJ2/RNA_S/project_Q3/P101SC18080982-01-B1-18_xiaoshu_20180901/CellRanger/E/E/outs/E_gene_bar.csv',sep=',',header=T,row.names=1)
+#data<-read.table('CellRanger/E/E/outs/E_gene_bar.csv',sep=',',header=T,row.names=1)
 #data<-data[,-ncol(data)+7:-ncol(data)]
 #write.table(data,file='E_gene_bar.filt.csv',row.names=T,col.names=T,quote=F,se=',')
 data<-read.table('E_gene_bar.filt.csv',sep=',',header=T,row.names=1)

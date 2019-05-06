@@ -10,9 +10,9 @@ library('ggplot2')
 #args <- parser$parse_args()
 #str(args)
 
-clusterpath = "/NJPROJ2/RNA_S/project_Q4/P101SC18090099-01-B5-18_ren_20181216/CellRanger/MGUSPC_1/MGUSPC_1/outs/analysis/clustering" 
+clusterpath = "CellRanger/MGUSPC_1/MGUSPC_1/outs/analysis/clustering" 
 sample = "3.0test" 
-tsne= "/NJPROJ2/RNA_S/project_Q4/P101SC18090099-01-B5-18_ren_20181216/CellRanger/MGUSPC_1/MGUSPC_1/outs/analysis/tsne/2_components/projection.csv"
+tsne= "CellRanger/MGUSPC_1/MGUSPC_1/outs/analysis/tsne/2_components/projection.csv"
 
 vis_clusters<-function (cluster_result, projection, colour = NULL, alpha = 1,
     marker_size = 0.1, title = NULL, legend_anno = NULL)
